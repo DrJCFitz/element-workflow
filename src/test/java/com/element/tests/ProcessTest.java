@@ -15,12 +15,8 @@
 package com.element.tests;
 
 import java.io.IOException;
-import java.util.List;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,24 +26,15 @@ import org.springframework.test.context.ContextConfiguration;
 import com.amazonaws.services.simpleworkflow.flow.annotations.Asynchronous;
 import com.amazonaws.services.simpleworkflow.flow.annotations.Wait;
 import com.amazonaws.services.simpleworkflow.flow.core.Promise;
-import com.amazonaws.services.simpleworkflow.flow.core.TryCatchFinally;
 import com.amazonaws.services.simpleworkflow.flow.core.TryFinally;
 import com.amazonaws.services.simpleworkflow.flow.junit.WorkflowTestBase;
 import com.amazonaws.services.simpleworkflow.flow.junit.spring.FlowSpringJUnit4ClassRunner;
-import com.element.flow.model.Merchant;
 import com.element.flow.model.PortalProfile;
-import com.element.flow.workflow.ProcessActivities;
-import com.element.flow.workflow.ProcessWorkflow;
-import com.element.flow.workflow.ProcessWorkflowImpl;
-import com.newvem.swf.workflow.ProcessWorkflowClient;
-import com.newvem.swf.workflow.ProcessWorkflowClientExternal;
-import com.newvem.swf.workflow.ProcessWorkflowClientExternalFactoryImpl;
-import com.newvem.swf.workflow.ProcessWorkflowClientFactory;
-import com.newvem.swf.workflow.ProcessWorkflowClientFactoryImpl;
+import com.element.flow.workflow.ProcessWorkflowClient;
+import com.element.flow.workflow.ProcessWorkflowClientFactory;
 
 @RunWith(FlowSpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:portalProfile-config.xml", 
-		"classpath:com/newvem/swf/test/config/ProcessTest-context.xml"})
+@ContextConfiguration(locations={"classpath:com/element/test/config/ProcessTest-context.xml"})
 public class ProcessTest {
 
     /*public static class TestProcessActivities implements ProcessActivities {
@@ -80,9 +67,7 @@ public class ProcessTest {
     @Autowired
     public ProcessWorkflowClientFactory workflowClientFactory;
     
-    @Autowired
-    public PortalProfile ebatesProfile;
-
+    
     //@Autowired
     //public TestProcessActivities activitiesImpl;
     
@@ -92,7 +77,7 @@ public class ProcessTest {
     	 * the workflowTest
     	 */
     	ProcessWorkflowClient workflowClient = workflowClientFactory.getClient();
-        Promise<Element> done = workflowClient.listStores(ebatesProfile); 
+        Promise<Element> done = workflowClient.listStores(); 
         printLists(done);
     }
     

@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.parser.Tag;
 import org.jsoup.select.Elements;
 
 import com.amazonaws.services.simpleworkflow.flow.annotations.Asynchronous;
@@ -36,16 +35,17 @@ public class ProcessActivitiesImpl implements ProcessActivities {
 	//}
 
 	@Override
-	public Element retrieveDocumentElements(final PortalProfile profile) throws IOException {
-		Document doc = Jsoup.connect(profile.getAllStoresUrl()).get();
-		Elements storeLinks = doc.select(profile.getRootElement());
-		List<Element> listLinks = storeLinks.subList(0, 1);
-		
+	public Element retrieveDocumentElements() throws IOException {
+		//Document doc = Jsoup.connect(profile.getAllStoresUrl()).get();
+		//Elements storeLinks = doc.select(profile.getRootElement());
+		//List<Element> listLinks = storeLinks.subList(0, 1);
+		Tag tag = Tag.valueOf("tr");
+		String baseUrl = "http://www.ebates.com";
 		//Merchant merch = new Merchant();
-		return listLinks.get(0);
+		return new Element(tag, baseUrl);
 	}
 	
-	@Asynchronous
+    @Asynchronous
 	public Promise<List<Merchant>> pullFromSettable(Settable<List<Merchant>> settableList) {
 		return settableList;
 	}

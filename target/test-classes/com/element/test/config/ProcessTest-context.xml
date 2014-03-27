@@ -27,17 +27,17 @@
 		</property>
 	</bean>
 
-	<bean id="activitiesClient" class="com.newvem.swf.workflow.ProcessActivitiesClientImpl"
+	<bean id="activitiesClient" class="com.element.flow.workflow.ProcessActivitiesClientImpl"
 		scope="workflow">
 	</bean>
 
-	<bean id="workflowImpl" class="com.newvem.swf.workflow.ProcessWorkflowImpl"
+	<bean id="workflowImpl" class="com.element.flow.workflow.ProcessWorkflowImpl"
 		scope="workflow">
 		<aop:scoped-proxy proxy-target-class="false" />
 	</bean>
 
 	<bean id="activitiesImpl"
-		class="com.newvem.swf.workflow.ProcessActivitiesImpl">
+		class="com.element.flow.workflow.ProcessActivitiesImpl">
 	</bean>
 
 	<bean id="workflowTest"
@@ -60,7 +60,7 @@
 	</bean>
 
 	<bean id="workflowClientFactory"
-		class="com.newvem.swf.workflow.ProcessWorkflowClientFactoryImpl">
+		class="com.element.flow.workflow.ProcessWorkflowClientFactoryImpl">
 	</bean>
 
 </beans>

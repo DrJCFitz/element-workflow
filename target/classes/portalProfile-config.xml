@@ -8,10 +8,10 @@
 
 	<context:annotation-config></context:annotation-config>
 	<context:component-scan
-		base-package="com.newvem.swf">
+		base-package="com.element.flow">
 	</context:component-scan>
 	
-	<bean id="ebatesProfile" class="com.newvem.swf.model.PortalProfile">
+	<bean id="ebatesProfile" class="com.element.flow.PortalProfile">
 		<property name="profileKey" value="ebates" />
 		<property name="portalName" value="Ebates" />
 		<property name="rootElement" value="tr.store" />
@@ -37,7 +37,7 @@
 	</bean>
 
 	<bean id="unitedProfile" name="unitedProfile"
-		class="com.newvem.swf.model.PortalProfile">
+		class="com.element.flow.PortalProfile">
 		<property name="profileKey" value="united" />
 		<property name="portalName" value="United MileagePlus" />
 		<property name="rootElement" value="div.mn_srchListSection li" />
@@ -63,7 +63,7 @@
 	</bean>	
 
 	<bean id="marriottProfile" name="marriottProfile"
-		class="com.newvem.swf.model.PortalProfile">
+		class="com.element.flow.PortalProfile">
 		<property name="profileKey" value="marriott" />
 		<property name="portalName" value="Marriott Rewards" />
 		<property name="rootElement" value="div.merchant-container-list" />
@@ -88,7 +88,7 @@
 		</property>
 	</bean>	
 	<bean id="upromiseProfile" name="upromiseProfile"
-		class="com.newvem.swf.model.PortalProfile">
+		class="com.element.flow.PortalProfile">
 		<property name="profileKey" value="upromise" />
 		<property name="portalName" value="UPromise" />
 		<property name="rootElement" value="div#allStores>ul>li" />
