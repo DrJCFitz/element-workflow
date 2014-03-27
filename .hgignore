@@ -1,0 +1,9 @@
+.classpath
+.idea
+.project
+.settings
+.classpath
+target
+
+syntax: regexp
+^.*aws\.properties$

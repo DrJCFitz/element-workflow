@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="mKeyExclusions" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="EXCLUSIONS" value="(inc\\.)?(\\.com)?(\\.net)?(\\.org)?(\\band)?(online)?(shoes)?(outfitters)?\\W?"/>
+				<entry key="wsjwineclub" value="wsjwine"/>
+				<entry key="spreadshirtdesigner" value="spreadshirt"/>
+				<entry key="speedousa" value="speedo"/>
+				<entry key="spanxbysarablakely" value="spanx"/>
+				<entry key="spafinderwellness365" value="spafinderwellness"/>
+				<entry key="sonystore" value="sony"/>
+				<entry key="smashbox" value="smashboxcosmetics"/>
+				<entry key="skyo" value="skyotextbooks"/>
+				<entry key="samsungelectronicsamerica" value="samsung"/>
+				<entry key="sallybeauty" value="sallybeautysupply" />
+				<entry key="saksfifthavenueoff5th" value="saksofffifth" />
+				<entry key="saks" value="saksfifthavenue" />
+				<entry key="rosettastonelanguagesoftware" value="rosettastone" />
+				<entry key="rodalestore" value="rodales" />
+				<entry key="rakutenshoppingformerlybuy" value="rakuten" />
+				<entry key="quickbooks" value="quickbooksonline" />
+				<entry key="performancebike" value="performancebicycle" />
+				<entry key="ps" value="psfromaeropostale" />
+				<entry key="overland" value="overlandsheepskinco" />
+				<entry key="ojon" value="ojonhaircare" />
+				<entry key="northerntoolequipment" value="northerntool" />
+				<entry key="nikestore" value="nike" />
+				<entry key="nfl" value="nflshop" />
+				<entry key="nationalgeographicstore" value="nationalgeographic" />
+				<entry key="nascarstore" value="nascar" />
+				<entry key="midesignmichaelscustominvites" value="michaelscustominvitations" />
+				<entry key="luckybrand" value="luckybrandjeans" />
+				<entry key="lenovothinkpad" value="lenovo" />
+				<entry key="legoshopathome" value="lego" />
+				<entry key="labseries" value="labseriesskincareformen" />
+				<entry key="labseriesformen" value="labseriesskincareformen" />
+				<entry key="kiplingusa" value="kipling" />
+				<entry key="kielssince1851" value="kiels" />
+				<entry key="jaredthegalleriaofjewelry" value="jared" />
+				<entry key="istockphoto" value="istock" />
+				<entry key="irvsluggage" value="irvsluggagewarehouse" />
+				<entry key="ipage" value="ipagewebhosting" />
+				<entry key="intuitquickbooksonline" value="quickbooksonline" />
+				<entry key="intuitquickbooksdesktop" value="quickbooksdesktop" />
+				<entry key="highlights" value="highlightsforchildren" />
+				<entry key="hrblockathome" value="hrblock" />
+				<entry key="gocardusasmartdestinations" value="gocardusa" />
+				<entry key="glasses" value="glassesusa" />
+				<entry key="gevaliakaffe" value="gevalia" />
+				<entry key="gevaliacoffee" value="gevalia" />
+				<entry key="folica" value="folicabeautysupply" />
+				<entry key="effyjewelry" value="effyjewelers" />
+				<entry key="discoverystore" value="discoverychannelstore" />
+				<entry key="dancingdeerbakingco" value="dancingdeerbakingcompany" />
+				<entry key="cymaxstores" value="cymax" />
+				<entry key="cusp" value="cuspbyneimanmarcus" />
+				<entry key="champion" value="championusa" />
+				<entry key="carolwrightsgifts" value="carolwrightgifts" />
+				<entry key="boden" value="bodenus" />
+				<entry key="bodenusa" value="bodenus" />
+				<entry key="blissworld" value="bliss" />
+				<entry key="bjs" value="bjswholesaleclub" />
+				<entry key="bjswholesale" value="bjswholesaleclub" />
+				<entry key="baseballrampagesoftballrampage" value="baseballrampage" />
+				<entry key="americaneagle" value="americaneagleoutfitters" />
+				<entry key="afflictionclothing" value="affliction" />
+				<entry key="aerieforamericaneagle" value="aerie" />
+				<entry key="crowneplaza" value="crowneplazahotelsresorts" />
+				<entry key="discounttireamericastire" value="discounttire" />
+				<entry key="drleonards" value="drleonardshealthcare" />
+				<entry key="duncraft" value="duncraftwildbirdsuperstore" />
+				<entry key="duncraftbirdfeeders" value="duncraftwildbirdsuperstore" />
+				<entry key="elsevierstore" value="elsevier" />
+				<entry key="estelauder" value="esteelauder" />
+				<entry key="evesaddiction" value="evesaddictionjewelry" />
+				<entry key="fanniemaycandies" value="fanniemay" />
+				<entry key="holidayinnexpresshotels" value="holidayinnexpress" />
+				<entry key="holidayinn" value="holidayinnhotelsresorts" />
+				<entry key="hotelindigo" value="hotelindigohotels" />
+				<entry key="intercontinental" value="intercontinentalhotelsresorts" />
+				<entry key="adagio" value="adagioteas" />
+				<entry key="ahnu" value="ahnufootwear" />
+				<entry key="alibris" value="alibrisbooksmusicmovies" />
+				<entry key="bates" value="batesfootwear" />
+				<entry key="bowflexshop" value="bowflex" />
+				<entry key="budget" value="budgetrentacar" />
+				<entry key="budgettruck" value="budgettruckrental" />
+				<entry key="carbonite" value="carbonitebackup" />
+				<entry key="chefs" value="chefscatalog" />
+				<entry key="chegg" value="cheggstudy" />
+				<entry key="clarionhotel" value="clarionhotels" />
+				<entry key="candlewoodsuites" value="candlewoodsuiteshotels" />
+				<entry key="cookieskids" value="cookiesthekidsdepartmentstore" />
+				<entry key="dellhomesystems" value="dellhome" />
+				<entry key="foodsavervacuumsealingsystem" value="foodsaver" />
+				<entry key="ftdflowersgifts" value="ftd" />
+				<entry key="hphomehomeofficestore" value="hphomeofficestore" />
+				<entry key="lancme" value="lancome" />
+				<entry key="levi" value="levis" />
+				<entry key="lifelockidentitytheftprotection" value="lifelock" />
+				<entry key="lumberliquidator" value="lumberliquidators" />
+				<entry key="melissaanddoug" value="melissadoug" />
+				<entry key="microtelinnsuitesbywyndham" value="microtelinnsuites" />
+				<entry key="mlbshop" value="mlb" />
+				<entry key="nascarsuperstore" value="nascar" />
+				<entry key="nbcstore" value="nbcuniversalstore" />
+				<entry key="nortonfromsymantec" value="nortonbysymantec" />
+				<entry key="oneidaltd" value="oneida" />
+				<entry key="panasonicideasforlife" value="panasonic" />
+				<entry key="parkplaza" value="parkplazahotelsresorts" />
+				<entry key="paylesssource" value="paylessshoesource" />
+				<entry key="pipingrock" value="pipingrockhealthproducts" />
+				<entry key="proactivsolution" value="proactiv" />
+				<entry key="radisson" value="radissonhotelsresorts" />
+				<entry key="rakutenshopping" value="rakuten" />
+				<entry key="ruum" value="ruumamericankidswear" />
+				<entry key="sandalsallinclusiveresorts" value="sandalsresorts" />
+				<entry key="staybridgesuiteshotels" value="staybridgesuites" />
+				<entry key="sundancecatalog" value="sundance" />
+				<entry key="thenewyorktimesstore" value="thenewyorktimes" />
+				<entry key="wjswinediscoveryclub" value="wsjwine" />
+				<entry key="wyndhamhotelgroup" value="wyndhamhotelsresorts" />
+				<entry key="yvesrocherus" value="yvesrocherusa" />
+				<entry key="yvessaintlaurent" value="yvessaintlaurentbeauty" />
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

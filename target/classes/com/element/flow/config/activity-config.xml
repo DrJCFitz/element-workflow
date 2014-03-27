@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+   <!--  register custom scope -->
+   <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+      <property name="scopes">
+         <map>
+            <entry key="workflow">
+               <bean
+                  class="com.amazonaws.services.simpleworkflow.flow.spring.WorkflowScope" />
+            </entry>
+         </map>
+      </property>
+   </bean>
+
+	<context:property-placeholder 
+		location="classpath:AwsCredentials.properties"/>
+
+	<bean id="accesskeys" class="com.amazonaws.auth.BasicAWSCredentials">
+		<constructor-arg value="${accessKey}" />
+		<constructor-arg value="${secretKey}" />
+	</bean>
+
+
+   <bean id="clientConfiguration" class="com.amazonaws.ClientConfiguration">
+      <property name="socketTimeout" value="70000" />
+   </bean>
+
+   <!-- &SWF; client -->
+   <bean id="swfClient"
+      class="com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient">
+      <constructor-arg ref="accesskeys" />
+      <constructor-arg ref="clientConfiguration" />
+      <property name="endpoint" value="https://swf.us-east-1.amazonaws.com" />
+   </bean>
+
+	<!-- activities impl -->
+   <bean name="activitiesImpl" class="com.newvem.swf.workflow.ProcessActivitiesImpl">
+   </bean>
+
+   <!-- activity worker -->
+   <bean id="activityWorker"
+      class="com.amazonaws.services.simpleworkflow.flow.spring.SpringActivityWorker">
+      <constructor-arg ref="swfClient" />
+      <constructor-arg value="drjcfitz-workflow" />
+      <constructor-arg value="sample-workflow" />
+      <property name="registerDomain" value="true" />
+      <property name="domainRetentionPeriodInDays" value="1" />
+      <property name="activitiesImplementations">
+         <list>
+            <ref bean="activitiesImpl" />
+         </list>
+      </property>
+   </bean>
+</beans>

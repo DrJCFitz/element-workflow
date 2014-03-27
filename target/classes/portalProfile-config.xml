@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan
+		base-package="com.newvem.swf">
+	</context:component-scan>
+	
+	<bean id="ebatesProfile" class="com.newvem.swf.model.PortalProfile">
+		<property name="profileKey" value="ebates" />
+		<property name="portalName" value="Ebates" />
+		<property name="rootElement" value="tr.store" />
+		<property name="merchantElement" value="td.storeName a" />
+		<property name="rewardElement" value="td.storeRebate a" />
+		<property name="portalUrl" value="http://www.ebates.com" />
+		<property name="allStoresUrl" value="http://www.ebates.com/stores/all/index.htm" />
+		<property name="portalRegexp">
+			<map key-type="java.lang.String"
+				value-type="java.lang.String">
+				<entry key="prefix" value="" />
+				<entry key="cashVal" value="\$?)" />
+				<entry key="rewardVal" value="\d{1,}(.\d{1,2})?)"/>
+				<entry key="percentVal" value="%?)"/>
+				<entry key="unitspace" value="(\s*"/>
+				<entry key="units" value="\w*)"/>
+				<entry key="rate" value="/\$)\d*)?"/>
+				<entry key="suffix" value="" />
+				<entry key="exclusionName" value="(Offers)?(Coupons)?\s*\u0026\s*Cash\s*Back" />
+				<entry key="exclusionReward" value="" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="unitedProfile" name="unitedProfile"
+		class="com.newvem.swf.model.PortalProfile">
+		<property name="profileKey" value="united" />
+		<property name="portalName" value="United MileagePlus" />
+		<property name="rootElement" value="div.mn_srchListSection li" />
+		<property name="merchantElement" value="a.mn_hoverLink" />
+		<property name="rewardElement" value="span" />
+		<property name="portalUrl" value="http://www.mileageplusshopping.com" />
+		<property name="allStoresUrl" value="http://www.mileageplusshopping.com/shopping/b____alpha.htm" />
+		<property name="portalRegexp">
+			<map key-type="java.lang.String"
+				value-type="java.lang.String">
+				<entry key="prefix" value="" />
+				<entry key="cashVal" value=")" />
+				<entry key="rewardVal" value="\d{1,}(\.\d{1,})?)"/>
+				<entry key="percentVal" value=")"/>
+				<entry key="unitspace" value="\W*"/>
+				<entry key="units" value="[a-z]+)"/>
+				<entry key="rate" value="/\$)?"/>
+				<entry key="suffix" value="" />
+				<entry key="exclusionName" value="" />
+				<entry key="exclusionReward" value="" />
+			</map>
+		</property>
+	</bean>	
+
+	<bean id="marriottProfile" name="marriottProfile"
+		class="com.newvem.swf.model.PortalProfile">
+		<property name="profileKey" value="marriott" />
+		<property name="portalName" value="Marriott Rewards" />
+		<property name="rootElement" value="div.merchant-container-list" />
+		<property name="merchantElement" value="div.merchant-name a" />
+		<property name="rewardElement" value="div.merchant-cashback div" />
+		<property name="portalUrl" value="https://mrewards.shopmyway.com" />
+		<property name="allStoresUrl" value="https://mrewards.shopmyway.com/earnpoints/allMerchants" />
+		<property name="portalRegexp">
+			<map key-type="java.lang.String"
+				value-type="java.lang.String">
+				<entry key="prefix" value="^" />
+				<entry key="cashVal" value=")" />
+				<entry key="rewardVal" value="\d{1,}(\.\d{1,})?)"/>
+				<entry key="percentVal" value=")"/>
+				<entry key="unitspace" value="" />
+				<entry key="units" value="\W*[a-z]*)"/>
+				<entry key="rate" value="/\$)?"/>
+				<entry key="suffix" value="" />
+				<entry key="exclusionName" value="" />
+				<entry key="exclusionReward" value="" />
+			</map>
+		</property>
+	</bean>	
+	<bean id="upromiseProfile" name="upromiseProfile"
+		class="com.newvem.swf.model.PortalProfile">
+		<property name="profileKey" value="upromise" />
+		<property name="portalName" value="UPromise" />
+		<property name="rootElement" value="div#allStores>ul>li" />
+		<property name="merchantElement" value="a.storeInfoHover" />
+		<property name="rewardElement" value="" />
+		<property name="portalUrl" value="http://shop.upromise.com" />
+		<property name="allStoresUrl" value="http://shop.upromise.com/mall/view-all-companies" />
+		<property name="portalRegexp">
+			<map key-type="java.lang.String"
+				value-type="java.lang.String">
+				<entry key="prefix" value="" />
+				<entry key="cashVal" value="\$)?" />
+				<entry key="rewardVal" value="\d{1,}(\W*\.\d{1,})?)"/>
+				<entry key="percentVal" value="%)?"/>
+				<entry key="unitspace" value=""/>
+				<entry key="units" value=")"/>
+				<entry key="rate" value="\W*(per\W*)?(trial)?(booking)?(request)?(quote)?(registration)?(transaction)?(subscription)?)?"/>
+				<entry key="suffix" value="" />
+				<entry key="exclusionReward" value="(new\W*)?(registered\W*)?(for completing the\W*)?" />
+				<entry key="exclusionName" value="" />
+			</map>
+		</property>
+	</bean>
+</beans>
